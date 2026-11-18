@@ -1,0 +1,33 @@
+body {
+  font-size: var(--font-size-md);
+  line-height: 1.45;
+
+  color: var(--ink);
+  font-family: "DejaVu Sans", sans-serif;
+  hyphens: none;
+  margin: 0;
+  text-align: left;
+  word-break: normal;
+}
+
+p {
+  orphans: 3;
+  widows: 3;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Screen-only: constrain layout to A4 page width (210mm), centered.
+   Must come after the base `body` rule so it wins the cascade on screen.
+   Narrow viewports just fill their width. */
+@media screen {
+  body {
+    max-width: 210mm;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

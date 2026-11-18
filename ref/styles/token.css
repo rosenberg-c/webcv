@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --accent: #2d76be;
+  --bullet-ink: #ae0000;
+  --ink: #222222;
+  --muted: #666666;
+  --rule: #d8dee7;
+  --surface-muted: #f4f7fb;
+
+  /* Debug Colors */
+  --debug-surface-1: #ffe3e3;
+  --debug-surface-2: #fff3bf;
+  --debug-surface-3: #d3f9d8;
+  --debug-surface-4: #d0ebff;
+  --debug-surface-5: #e5dbff;
+
+  /* Typography */
+  --font-size-xs: 8.5pt;
+  --font-size-sm: 9.5pt;
+  --font-size-md: 10.5pt;
+  --font-size-lg: 11pt;
+  --font-size-xl: 24pt;
+  --indent-1_2em: 1.2em;
+
+  /* Spacing */
+  --space-2xs: 3pt;
+  --space-xs: 4pt;
+  --space-sm: 6pt;
+  --space-md: 8pt;
+  --space-lg: 10pt;
+  --space-xl: 12pt;
+  --space-2xl: 14pt;
+  --space-3xl: 18pt;
+  --space-4xl: 38pt;
+
+  /* Sizes */
+  --size-xl: 84pt;
+
+  /* Radius */
+  --radius-md: 6pt;
+
+  /* Borders */
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+
+  /* Layout */
+  --columns-sm: 2;
+  --columns-md: 3;
+}

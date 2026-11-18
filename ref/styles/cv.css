@@ -1,0 +1,87 @@
+.document-section + .document-section {
+  margin-top: var(--space-2xl);
+}
+
+.document-section h1 {
+  border-bottom: var(--border-width-sm) solid var(--rule);
+  color: var(--accent);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: var(--space-4xl) 0 var(--space-md);
+  padding-bottom: var(--space-xs);
+}
+
+.document-section h2 {
+  color: var(--ink);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  margin: var(--space-lg) 0 var(--space-xs);
+}
+
+.document-section h3 {
+  color: var(--ink);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin: var(--space-md) 0 var(--space-xs);
+}
+
+.stack-card {
+  background: var(--surface-muted);
+  break-inside: avoid;
+  border-radius: var(--radius-md);
+  margin: var(--space-lg);
+  page-break-inside: avoid;
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.page-break {
+  break-before: page;
+  page-break-before: always;
+}
+
+.stack-card ul {
+  column-count: var(--columns-md);
+  column-gap: var(--space-3xl);
+  margin: 0 0 0 var(--indent-1_2em);
+  padding: 0;
+}
+
+.stack-card h2,
+.stack-card h3 {
+  margin: 0 0 var(--space-sm);
+}
+
+.stack-card li {
+  break-inside: avoid;
+  padding-right: var(--space-sm);
+}
+
+/* Keep stack lists extraction-friendly for ATS and pdftotext. */
+.stack-card ul {
+  column-count: var(--columns-sm);
+}
+
+p {
+  margin: 0 0 var(--space-md);
+}
+
+ul {
+  margin: 0 0 var(--space-md) var(--indent-1_2em);
+  padding: 0;
+}
+
+li {
+  margin: 0 0 var(--space-xs);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border-width-sm) solid var(--rule);
+  margin: var(--space-2xl) 0;
+}
+
+h1,
+h2,
+h3 {
+  break-after: avoid;
+}
