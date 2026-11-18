@@ -1,0 +1,10 @@
+[
+  { "icon": "phone", "text": "+123-456-7890", "href": "tel:+1234567890" },
+  {
+    "icon": "mail",
+    "text": "hello@reallygreatsite.com",
+    "href": "mailto:hello@reallygreatsite.com"
+  },
+  { "icon": "location", "text": "123 Anywhere St., Any City" },
+  { "icon": "web", "text": "www.reallygreatsite.com", "href": "https://www.reallygreatsite.com" }
+]

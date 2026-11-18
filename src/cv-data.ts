@@ -1,3 +1,11 @@
+import profileData from "./data/profile.json";
+import contactData from "./data/contact.json";
+import educationData from "./data/education.json";
+import experienceData from "./data/experience.json";
+import skillsData from "./data/skills.json";
+import languagesData from "./data/languages.json";
+import referencesData from "./data/references.json";
+
 export interface ContactItem {
   icon: "phone" | "mail" | "location" | "web";
   text: string;
@@ -38,85 +46,35 @@ export interface CvData {
   references: ReferenceItem[];
 }
 
+const CONTACT_ICONS = ["phone", "mail", "location", "web"] as const;
+
+type ContactIcon = (typeof CONTACT_ICONS)[number];
+
+function isContactIcon(value: unknown): value is ContactIcon {
+  return typeof value === "string" && CONTACT_ICONS.includes(value as ContactIcon);
+}
+
+const contact: ContactItem[] = contactData.map((item) => {
+  if (!isContactIcon(item.icon)) {
+    throw new Error(`Invalid contact icon: ${String(item.icon)}`);
+  }
+
+  return {
+    icon: item.icon,
+    text: item.text,
+    href: item.href,
+  };
+});
+
 export const cvData: CvData = {
-  firstName: "Richard",
-  lastName: "Sanchez",
-  title: "Marketing Manager",
-  contact: [
-    { icon: "phone", text: "+123-456-7890", href: "tel:+1234567890" },
-    { icon: "mail", text: "hello@reallygreatsite.com", href: "mailto:hello@reallygreatsite.com" },
-    { icon: "location", text: "123 Anywhere St., Any City" },
-    { icon: "web", text: "www.reallygreatsite.com", href: "https://www.reallygreatsite.com" },
-  ],
-  education: [
-    {
-      years: "2029 - 2030",
-      school: "Wardiere University",
-      details: ["Master of Business Management"],
-    },
-    {
-      years: "2025 - 2029",
-      school: "Wardiere University",
-      details: ["Bachelor of Business", "GPA: 3.8 / 4.0"],
-    },
-  ],
-  skills: [
-    "Project Management",
-    "Public Relations",
-    "Teamwork",
-    "Time Management",
-    "Leadership",
-    "Effective Communication",
-    "Critical Thinking",
-  ],
-  languages: ["English (Fluent)", "French (Fluent)", "German (Basics)", "Spanish (Intermediate)"],
-  profile:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  experience: [
-    {
-      company: "Borcelle Studio",
-      years: "2030 - Present",
-      role: "Marketing Manager & Specialist",
-      bullets: [
-        "Develop and execute comprehensive marketing strategies and campaigns that align with the company's goals and objectives.",
-        "Lead, mentor, and manage a high-performing marketing team, fostering a collaborative and results-driven work environment.",
-        "Monitor brand consistency across marketing channels and materials.",
-      ],
-    },
-    {
-      company: "Fauget Studio",
-      years: "2025 - 2029",
-      role: "Marketing Manager & Specialist",
-      bullets: [
-        "Create and manage the marketing budget, ensuring efficient allocation of resources and optimizing ROI.",
-        "Oversee market research to identify emerging trends, customer needs, and competitor strategies.",
-        "Monitor brand consistency across marketing channels and materials.",
-      ],
-    },
-    {
-      company: "Studio Shodwe",
-      years: "2024 - 2025",
-      role: "Marketing Manager & Specialist",
-      bullets: [
-        "Develop and maintain strong relationships with partners, agencies, and vendors to support marketing initiatives.",
-        "Monitor and maintain brand consistency across all marketing channels and materials.",
-      ],
-    },
-  ],
-  references: [
-    {
-      name: "Estelle Darcy",
-      company: "Wardiere Inc.",
-      role: "CTO",
-      phone: "123-456-7890",
-      email: "hello@reallygreatsite.com",
-    },
-    {
-      name: "Harper Richard",
-      company: "Wardiere Inc.",
-      role: "CEO",
-      phone: "123-456-7890",
-      email: "hello@reallygreatsite.com",
-    },
-  ],
+  firstName: profileData.firstName,
+  lastName: profileData.lastName,
+  title: profileData.title,
+  contact,
+  education: educationData,
+  skills: skillsData,
+  languages: languagesData,
+  profile: profileData.profile,
+  experience: experienceData,
+  references: referencesData,
 };

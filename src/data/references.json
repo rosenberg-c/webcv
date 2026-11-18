@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Estelle Darcy",
+    "company": "Wardiere Inc.",
+    "role": "CTO",
+    "phone": "123-456-7890",
+    "email": "hello@reallygreatsite.com"
+  },
+  {
+    "name": "Harper Richard",
+    "company": "Wardiere Inc.",
+    "role": "CEO",
+    "phone": "123-456-7890",
+    "email": "hello@reallygreatsite.com"
+  }
+]
