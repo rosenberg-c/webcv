@@ -1,4 +1,4 @@
-# webcv-2
+# webcv
 
 A static, data-driven CV site for Christian Rosenberg. TypeScript/Vite+ code in `src/` reads JSON content, renders the CV into `#app`, and styles it with plain CSS. Optional experience descriptions can be written as Markdown.
 
