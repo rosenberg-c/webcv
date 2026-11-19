@@ -1,6 +1,8 @@
 import "./style.css";
 import "./cv.css";
 import { cvData } from "./cv-data.ts";
+import { escapeHtml, safeHref } from "./html.ts";
+import { renderMarkdown } from "./markdown.ts";
 import phoneIcon from "./assets/phone.svg?raw";
 import mailIcon from "./assets/mail.svg?raw";
 import locationIcon from "./assets/location.svg?raw";
@@ -13,30 +15,6 @@ const icons: Record<string, string> = {
   location: locationIcon,
   web: webIcon,
 };
-
-const htmlEscapes: Record<string, string> = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;",
-};
-
-/** Escape a value for interpolation into HTML text or a quoted attribute. */
-function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, (char) => htmlEscapes[char] ?? char);
-}
-
-const safeHrefSchemes = new Set(["http:", "https:", "mailto:", "tel:"]);
-
-/** Return `href` only if it parses with an allowed scheme, otherwise `null`. */
-function safeHref(href: string): string | null {
-  try {
-    return safeHrefSchemes.has(new URL(href).protocol) ? href : null;
-  } catch {
-    return null;
-  }
-}
 
 function renderContact(item: (typeof cvData.contact)[number]): string {
   const text = escapeHtml(item.text);
@@ -91,8 +69,15 @@ function renderCareerSummary(text: string): string {
 
 function renderExperience(items: typeof cvData.experience): string {
   return items
-    .map(
-      (item) => `
+    .map((item) => {
+      const body =
+        item.bodyMarkdown === undefined
+          ? item.body === undefined
+            ? ""
+            : `<p>${escapeHtml(item.body)}</p>`
+          : `<div class="cv-job-body">${renderMarkdown(item.bodyMarkdown)}</div>`;
+
+      return `
     <li class="cv-timeline-item">
       <span class="cv-timeline-dot" aria-hidden="true"></span>
       <article class="cv-job">
@@ -101,12 +86,13 @@ function renderExperience(items: typeof cvData.experience): string {
           <span class="cv-job-years">${escapeHtml(item.years)}</span>
         </header>
         <p class="cv-job-role">${escapeHtml(item.role)}</p>
+        ${body}
         <ul class="cv-job-bullets">
           ${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}
         </ul>
       </article>
-    </li>`,
-    )
+    </li>`;
+    })
     .join("");
 }
 
@@ -174,7 +160,10 @@ app.innerHTML = `
   <div class="cv">
     <main class="cv-main" id="cv-main">
       <header class="cv-header">
-        <h1 class="cv-name"><span class="cv-name-first">${escapeHtml(cvData.firstName)}</span> <span class="cv-name-last">${escapeHtml(cvData.lastName)}</span></h1>
+        <h1 class="cv-name">
+          <span class="cv-name-first">${escapeHtml(cvData.firstName)}</span>
+          <span class="cv-name-last">${escapeHtml(cvData.lastName)}</span>
+        </h1>
         <p class="cv-title">${escapeHtml(cvData.title)}</p>
         <span class="cv-title-bar" aria-hidden="true"></span>
       </header>

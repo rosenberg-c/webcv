@@ -25,6 +25,8 @@ export interface ExperienceItem {
   company: string;
   years: string;
   role: string;
+  body?: string;
+  bodyMarkdown?: string;
   bullets: string[];
 }
 
@@ -65,6 +67,44 @@ export interface CvData {
   references: ReferenceItem[];
 }
 
+interface RawExperienceItem {
+  company: string;
+  years: string;
+  role: string;
+  body?: string;
+  bodyMd?: string;
+  bullets: string[];
+}
+
+const experienceBodyFiles = import.meta.glob("./data/experience/*.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+
+export function resolveExperienceBody(file: string, company: string): string {
+  const path = `./data/experience/${file}`;
+  const markdown = experienceBodyFiles[path];
+
+  if (markdown === undefined) {
+    throw new Error(
+      `Experience body Markdown file not found for ${company}: ${path} (referenced as "${file}")`,
+    );
+  }
+
+  return markdown;
+}
+
+const experience: ExperienceItem[] = (experienceData as RawExperienceItem[]).map((item) => ({
+  company: item.company,
+  years: item.years,
+  role: item.role,
+  body: item.body,
+  bodyMarkdown:
+    item.bodyMd === undefined ? undefined : resolveExperienceBody(item.bodyMd, item.company),
+  bullets: item.bullets,
+}));
+
 const CONTACT_ICONS = ["phone", "mail", "location", "web"] as const;
 
 type ContactIcon = (typeof CONTACT_ICONS)[number];
@@ -95,7 +135,7 @@ export const cvData: CvData = {
   languages: languagesData,
   profile: profileData.profile,
   careerSummary: careerSummaryData,
-  experience: experienceData,
+  experience,
   privateProjects: privateProjectsData,
   other: otherData,
   references: referencesData,

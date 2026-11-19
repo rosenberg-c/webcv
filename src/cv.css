@@ -248,6 +248,45 @@
   margin: 0 0 8px;
 }
 
+.cv-job-body > :first-child {
+  margin-top: 0;
+}
+
+.cv-job-body > :last-child {
+  margin-bottom: 0;
+}
+
+.cv-job-body p,
+.cv-job-body li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.cv-job-body p {
+  margin: 0 0 8px;
+}
+
+.cv-job-body ul,
+.cv-job-body ol {
+  margin: 0 0 8px;
+  padding-left: 1.2em;
+}
+
+.cv-job-body li {
+  margin-bottom: 4px;
+}
+
+.cv-job-body a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.cv-job-body a:hover,
+.cv-job-body a:focus-visible {
+  text-decoration: underline;
+}
+
 .cv-job-bullets {
   margin: 0;
   padding-left: 1.2em;
