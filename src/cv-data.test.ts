@@ -1,13 +1,11 @@
 import { expect, it } from "vite-plus/test";
 import { cvData, resolveExperienceBody } from "./cv-data.ts";
 
-it("resolves experience bodyMd files while keeping bullets separate", () => {
+it("keeps experience bullets separate from optional bodies", () => {
   const sbab = cvData.experience.find((item) => item.company === "SBAB Bank");
 
-  expect(sbab?.bodyMarkdown).toContain("The body text");
-  expect(sbab?.body).toBeUndefined();
+  expect(sbab?.bodyMarkdown).toBeUndefined();
   expect(sbab?.bullets.length).toBeGreaterThan(0);
-  expect(sbab?.bullets[0]).not.toContain("The body text");
 });
 
 it("keeps plain-text experience bodies backward compatible", () => {
