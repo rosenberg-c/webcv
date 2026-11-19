@@ -5,6 +5,9 @@ import experienceData from "./data/experience.json";
 import skillsData from "./data/skills.json";
 import languagesData from "./data/languages.json";
 import referencesData from "./data/references.json";
+import careerSummaryData from "./data/career-summary.json";
+import privateProjectsData from "./data/private-projects.json";
+import otherData from "./data/other.json";
 
 export interface ContactItem {
   icon: "phone" | "mail" | "location" | "web";
@@ -25,6 +28,19 @@ export interface ExperienceItem {
   bullets: string[];
 }
 
+export interface PrivateProjectItem {
+  name: string;
+  tagline: string;
+  href?: string;
+  linkText?: string;
+  description: string;
+}
+
+export interface OtherGroup {
+  title: string;
+  items: string[];
+}
+
 export interface ReferenceItem {
   name: string;
   company: string;
@@ -42,7 +58,10 @@ export interface CvData {
   skills: string[];
   languages: string[];
   profile: string;
+  careerSummary: string;
   experience: ExperienceItem[];
+  privateProjects: PrivateProjectItem[];
+  other: OtherGroup[];
   references: ReferenceItem[];
 }
 
@@ -75,6 +94,9 @@ export const cvData: CvData = {
   skills: skillsData,
   languages: languagesData,
   profile: profileData.profile,
+  careerSummary: careerSummaryData,
   experience: experienceData,
+  privateProjects: privateProjectsData,
+  other: otherData,
   references: referencesData,
 };

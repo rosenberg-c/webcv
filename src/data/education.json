@@ -1,12 +1,20 @@
 [
   {
-    "years": "2029 - 2030",
-    "school": "Wardiere University",
-    "details": ["Master of Business Management"]
+    "years": "Oct 2026 -",
+    "school": "Lexicon Yrkeshögskola, Malmö, Skåne",
+    "details": [
+      "Kompetensutveckling inom programmering och AI",
+      "Full-stack development with C# and .NET for backend development, and React and TypeScript for frontend development."
+    ]
   },
   {
-    "years": "2025 - 2029",
-    "school": "Wardiere University",
-    "details": ["Bachelor of Business", "GPA: 3.8 / 4.0"]
+    "years": "May 2017 - Jun 2018",
+    "school": "Malmö Yrkeshögskola, Malmö, Skåne",
+    "details": ["Programmerare iPhone och Android"]
+  },
+  {
+    "years": "2009 - 2012",
+    "school": "Högskolan Dalarna, Falun, Dalarna",
+    "details": ["Ljud- och musikproduktionsprogrammet"]
   }
 ]

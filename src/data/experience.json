@@ -1,31 +1,30 @@
 [
   {
-    "company": "Borcelle Studio",
-    "years": "2030 - Present",
-    "role": "Marketing Manager & Specialist",
+    "company": "SBAB Bank",
+    "years": "Dec 2022 - Mar 2026",
+    "role": "Senior Frontend Developer",
     "bullets": [
-      "Develop and execute comprehensive marketing strategies and campaigns that align with the company's goals and objectives.",
-      "Lead, mentor, and manage a high-performing marketing team, fostering a collaborative and results-driven work environment.",
-      "Monitor brand consistency across marketing channels and materials."
+      "Developed digital onboarding flows for corporate customers and housing associations, including identification and signing using BankID.",
+      "Built core parts of the onboarding solution from the ground up, from frontend architecture and component structure to production-ready applications.",
+      "Frontend development using React and TypeScript with a focus on reusable components, shared design patterns, and maintainable code.",
+      "Close collaboration with product, UX, and backend teams to deliver cohesive technical and user-centered solutions.",
+      "Actively contributed to code quality through code reviews, testing, and continuous improvement of the frontend architecture.",
+      "Worked in an agile, cross-functional team delivering value in three-week sprints.",
+      "Tech stack: TypeScript / JavaScript, React, Axios / REST APIs, Redux, OpenAPI tools, Styled Components, Jest / Vitest, GitLab CI/CD, Cypress / Playwright.",
+      "Tools and collaboration: Nvim, Visual Studio Code, Jira / Confluence, Miro, Figma, Copilot."
     ]
   },
   {
-    "company": "Fauget Studio",
-    "years": "2025 - 2029",
-    "role": "Marketing Manager & Specialist",
+    "company": "Lifepod - Cross Technology Solutions",
+    "years": "Dec 2018 - Dec 2022",
+    "role": "Frontend Developer",
     "bullets": [
-      "Create and manage the marketing budget, ensuring efficient allocation of resources and optimizing ROI.",
-      "Oversee market research to identify emerging trends, customer needs, and competitor strategies.",
-      "Monitor brand consistency across marketing channels and materials."
-    ]
-  },
-  {
-    "company": "Studio Shodwe",
-    "years": "2024 - 2025",
-    "role": "Marketing Manager & Specialist",
-    "bullets": [
-      "Develop and maintain strong relationships with partners, agencies, and vendors to support marketing initiatives.",
-      "Monitor and maintain brand consistency across all marketing channels and materials."
+      "Frontend development of a health monitoring platform for patients with chronic diseases and healthcare professionals.",
+      "Built and maintained the web interface using React and TypeScript, focusing on scalable component structures and maintainable code.",
+      "Led the introduction of TypeScript in the project, established the type system, and gradually migrated the existing codebase.",
+      "Improved application stability and predictability while identifying previously undiscovered bugs during the migration process.",
+      "Worked in an agile development team using modern tools and workflows to ensure quality and efficient delivery.",
+      "Tech stack: TypeScript / JavaScript, React, Axios / REST APIs, Redux, Jest, Styled Components, Cypress, GitLab CI/CD, AWS (Amplify, S3)."
     ]
   }
 ]

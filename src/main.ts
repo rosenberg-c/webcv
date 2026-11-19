@@ -49,12 +49,17 @@ function renderEducation(items: typeof cvData.education): string {
   return items
     .map(
       (item) => `
-    <li class="cv-edu-item">
-      <p class="cv-edu-years">${escapeHtml(item.years)}</p>
-      <p class="cv-edu-school">${escapeHtml(item.school)}</p>
-      <ul class="cv-edu-details">
-        ${item.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("")}
-      </ul>
+    <li class="cv-timeline-item">
+      <span class="cv-timeline-dot" aria-hidden="true"></span>
+      <article class="cv-edu">
+        <header class="cv-job-header">
+          <h3 class="cv-job-company">${escapeHtml(item.school)}</h3>
+          <span class="cv-job-years">${escapeHtml(item.years)}</span>
+        </header>
+        <ul class="cv-job-bullets">
+          ${item.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("")}
+        </ul>
+      </article>
     </li>`,
     )
     .join("");
@@ -62,6 +67,26 @@ function renderEducation(items: typeof cvData.education): string {
 
 function renderBulletList(items: string[]): string {
   return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+}
+
+function renderProfile(text: string): string {
+  return text
+    .split(/\n\s*\n/)
+    .map(
+      (paragraph) =>
+        `<p class="cv-profile-text">${escapeHtml(paragraph.trim().replace(/\s+/g, " "))}</p>`,
+    )
+    .join("");
+}
+
+function renderCareerSummary(text: string): string {
+  return text
+    .split(/\n\s*\n/)
+    .map(
+      (paragraph) =>
+        `<p class="cv-career-summary-text">${escapeHtml(paragraph.trim().replace(/\s+/g, " "))}</p>`,
+    )
+    .join("");
 }
 
 function renderExperience(items: typeof cvData.experience): string {
@@ -81,6 +106,42 @@ function renderExperience(items: typeof cvData.experience): string {
         </ul>
       </article>
     </li>`,
+    )
+    .join("");
+}
+
+function renderPrivateProjects(items: typeof cvData.privateProjects): string {
+  return items
+    .map((item) => {
+      const link = item.href === undefined ? null : safeHref(item.href);
+      const linkNode =
+        link === null
+          ? escapeHtml(item.linkText ?? "")
+          : `<a href="${escapeHtml(link)}">${escapeHtml(item.linkText ?? link)}</a>`;
+      const metaNode =
+        item.tagline === undefined
+          ? linkNode
+          : `${escapeHtml(item.tagline)}${item.linkText || item.href ? ` - ${linkNode}` : ""}`;
+      return `
+    <article class="cv-private-project">
+      <h3 class="cv-private-project-title">${escapeHtml(item.name)}</h3>
+      <p class="cv-private-project-meta">${metaNode}</p>
+      <p class="cv-private-project-description">${escapeHtml(item.description)}</p>
+    </article>`;
+    })
+    .join("");
+}
+
+function renderOther(groups: typeof cvData.other): string {
+  return groups
+    .map(
+      (group) => `
+    <div class="stack-card cv-other-group">
+      <h3 class="cv-other-group-heading">${escapeHtml(group.title)}</h3>
+      <ul class="cv-other-group-list">
+        ${group.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+    </div>`,
     )
     .join("");
 }
@@ -119,7 +180,11 @@ app.innerHTML = `
       </header>
       <section class="cv-section">
         <h2 class="cv-section-heading">Profile</h2>
-        <p class="cv-profile-text">${escapeHtml(cvData.profile)}</p>
+        ${renderProfile(cvData.profile)}
+      </section>
+      <section class="cv-section">
+        <h2 class="cv-section-heading">Career Summary</h2>
+        ${renderCareerSummary(cvData.careerSummary)}
       </section>
       <section class="cv-section">
         <h2 class="cv-section-heading">Work Experience</h2>
@@ -128,13 +193,35 @@ app.innerHTML = `
         </ol>
       </section>
       <section class="cv-section">
+        <h2 class="cv-section-heading">Education</h2>
+        <ol class="cv-timeline">
+          ${renderEducation(cvData.education)}
+        </ol>
+      </section>
+      <section class="cv-section">
+        <h2 class="cv-section-heading">Private Projects</h2>
+        <div class="cv-private-projects">
+          ${renderPrivateProjects(cvData.privateProjects)}
+        </div>
+      </section>
+      <section class="cv-section">
+        <h2 class="cv-section-heading">Other</h2>
+        <div class="cv-other-groups">
+          ${renderOther(cvData.other)}
+        </div>
+      </section>
+      ${
+        cvData.references.length > 0
+          ? `<section class="cv-section">
         <h2 class="cv-section-heading">Reference</h2>
         <ul class="cv-references">
           ${renderReferences(cvData.references)}
         </ul>
-      </section>
+      </section>`
+          : ""
+      }
     </main>
-    <aside class="cv-sidebar" aria-label="Contact, education, skills, and languages">
+    <aside class="cv-sidebar" aria-label="Contact, skills, and languages">
       <div class="cv-photo-wrap">
         ${cvPhotoSvg.replace("__CV_NAME__", `${escapeHtml(cvData.firstName)} ${escapeHtml(cvData.lastName)}`)}
       </div>
@@ -145,12 +232,6 @@ app.innerHTML = `
             ${cvData.contact.map(renderContact).join("")}
           </ul>
         </address>
-      </section>
-      <section class="cv-side-section">
-        <h2 class="cv-side-heading">Education</h2>
-        <ul class="cv-edu-list">
-          ${renderEducation(cvData.education)}
-        </ul>
       </section>
       <section class="cv-side-section">
         <h2 class="cv-side-heading">Skills</h2>

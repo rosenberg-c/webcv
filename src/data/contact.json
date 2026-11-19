@@ -1,10 +1,9 @@
 [
-  { "icon": "phone", "text": "+123-456-7890", "href": "tel:+1234567890" },
+  { "icon": "phone", "text": "+46 555 1234", "href": "tel:+465551234" },
   {
     "icon": "mail",
-    "text": "hello@reallygreatsite.com",
-    "href": "mailto:hello@reallygreatsite.com"
+    "text": "mail@mail.com",
+    "href": "mailto:mail@mail.com"
   },
-  { "icon": "location", "text": "123 Anywhere St., Any City" },
-  { "icon": "web", "text": "www.reallygreatsite.com", "href": "https://www.reallygreatsite.com" }
+  { "icon": "location", "text": "Fable Street 100, 101010 Malmö" }
 ]

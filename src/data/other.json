@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Primary Languages / Programming",
+    "items": [
+      "TypeScript / JavaScript / Node.js",
+      "ESLint",
+      "Prettier",
+      "React",
+      "Axios / REST APIs / OpenAPI tools",
+      "Styled Components",
+      "Jest / Vitest",
+      "Redux",
+      "Cypress / Playwright"
+    ]
+  },
+  {
+    "title": "Other Languages",
+    "items": ["Swift", "SwiftUI", "Bash / Zsh", "Python", "Flutter / Dart", "C#"]
+  },
+  {
+    "title": "Platforms / Cloud",
+    "items": ["AWS (Amplify, S3, more)", "Firebase / Appwrite", "GitLab CI/CD", "SwaggerHub"]
+  },
+  {
+    "title": "Other Tools",
+    "items": [
+      "Visual Studio Code",
+      "Nvim",
+      "Docker",
+      "CSS",
+      "Claude Code",
+      "OpenCode",
+      "Copilot",
+      "OpenAPI tools",
+      "Ansible",
+      "Proxmox",
+      "Atlassian (Jira / Confluence)",
+      "Figma"
+    ]
+  }
+]

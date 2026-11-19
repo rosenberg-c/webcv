@@ -52,7 +52,6 @@
 }
 
 .cv-contact-list,
-.cv-edu-list,
 .cv-skills-list,
 .cv-languages-list {
   list-style: none;
@@ -91,52 +90,6 @@
 .cv-icon svg {
   width: 16px;
   height: 16px;
-}
-
-.cv-edu-item {
-  margin-bottom: 16px;
-}
-
-.cv-edu-item:last-child {
-  margin-bottom: 0;
-}
-
-.cv-edu-years {
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.cv-edu-school {
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 0 0 6px;
-}
-
-.cv-edu-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cv-edu-details li {
-  font-size: 13px;
-  color: #ffffff;
-  margin-bottom: 2px;
-  padding-left: 12px;
-  position: relative;
-  line-height: 1.4;
-}
-
-.cv-edu-details li::before {
-  content: "\2022";
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 .cv-skills-list li,
@@ -354,6 +307,101 @@
   text-decoration: underline;
 }
 
+.cv-career-summary-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-align: justify;
+  margin: 0;
+}
+
+.cv-private-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cv-private-project {
+  margin: 0;
+}
+
+.cv-private-project-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-company);
+  margin: 0 0 2px;
+}
+
+.cv-private-project-meta {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.cv-private-project-meta a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.cv-private-project-meta a:hover,
+.cv-private-project-meta a:focus-visible {
+  text-decoration: underline;
+}
+
+.cv-private-project-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cv-other-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stack-card {
+  background: #f4f6f8;
+  border-radius: 6px;
+  padding: 16px 20px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-other-group-heading {
+  color: var(--color-accent);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.cv-other-group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 24px;
+}
+
+.cv-other-group-list li {
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 4px;
+  padding-left: 12px;
+  position: relative;
+  break-inside: avoid;
+}
+
+.cv-other-group-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 @media (max-width: 768px) {
   .cv {
     grid-template-columns: 1fr;
@@ -403,11 +451,22 @@
   .cv-contact-list li,
   .cv-contact-list a,
   .cv-icon,
-  .cv-edu-years,
-  .cv-edu-school,
-  .cv-edu-details li,
   .cv-skills-list li,
   .cv-languages-list li {
+    color: var(--color-sidebar-bg);
+  }
+
+  .stack-card {
+    background: #ffffff;
+    border: 1px solid var(--color-rule);
+  }
+
+  .cv-career-summary-text,
+  .cv-private-project-title,
+  .cv-private-project-meta,
+  .cv-private-project-description,
+  .cv-other-group-heading,
+  .cv-other-group-list li {
     color: var(--color-sidebar-bg);
   }
 

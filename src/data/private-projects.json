@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Spicy",
+    "tagline": "AI tooling suite",
+    "href": "https://github.com/rosenberg-c/spicy",
+    "linkText": "github.com/rosenberg-c/spicy",
+    "description": "CLI tools, Neovim plugin, and Hammerspoon integration built on the opencode API."
+  },
+  {
+    "name": "MIDIVerse",
+    "tagline": "SwiftUI macOS",
+    "href": "https://apps.apple.com/se/app/midiverse/id6740984664?l=en-GB&mt=12",
+    "linkText": "App Store",
+    "description": "A tool for manipulating MIDI data and streams."
+  },
+  {
+    "name": "Racker",
+    "tagline": "Blender plugin",
+    "href": "https://github.com/rosenberg-c/racker",
+    "linkText": "github.com/rosenberg-c/racker",
+    "description": "A tool for building 19 inch rack units."
+  },
+  {
+    "name": "Styra (discontinued)",
+    "tagline": "Outlet manager",
+    "href": "https://github.com/rosenberg-c/public_flutter_styra_src",
+    "linkText": "github.com/rosenberg-c/public_flutter_styra_src",
+    "description": "Built a Flutter mobile app with a Python backend on Raspberry Pi to schedule and remotely control electrical outlets."
+  }
+]

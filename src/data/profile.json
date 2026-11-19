@@ -1,6 +1,6 @@
 {
-  "firstName": "Richard",
-  "lastName": "Sanchez",
-  "title": "Marketing Manager",
-  "profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  "firstName": "Christian",
+  "lastName": "Rosenberg",
+  "title": "Senior Frontend Developer",
+  "profile": "Frontend developer with a strong focus on scalable applications, code quality, and user experience. I have several years of experience building modern React-based systems with TypeScript in agile teams.\n\nI enjoy working on long-term solutions - from architecture and component structure to production-ready applications. My approach emphasizes structure, testability, and reusable components that make systems easier to evolve and maintain over time.\n\nIn addition to frontend development, I also explore full-stack development through personal projects and have a strong interest in the entire development lifecycle - from API design to deployment and infrastructure.\n\nAI is an important tool, but it is not a universal solution. While it can speed up workflows and generate code quickly, developers still need to understand the code they write and ensure it maintains high quality, security, and long-term maintainability."
 }
