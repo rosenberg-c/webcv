@@ -1,3 +1,5 @@
+include Makefile.screenshot.mk
+
 .PHONY: format
 
 format:
